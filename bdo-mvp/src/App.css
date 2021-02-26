@@ -1,7 +1,33 @@
-.App {
-  text-align: center;
+@import '~antd/dist/antd.css';
+
+
+.ant-layout-content {
+  
+  background-image: url("./assets/styles/Landing-3.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+
+  
+  
+  /* align-items: center; */
 }
 
+
+
+
+.App {
+  text-align: center;
+  }
+
+  #normal_login{
+    height:50%
+  }
+
+/* .instructions {
+  display:flex;
+  align-items: center;
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,8 +39,20 @@
   }
 }
 
+
+.ant-layout-header {
+  height: 64px;
+  padding: 0 50px;
+  line-height: 64px;
+  background: #146DA6;
+}
+
+.ant-layout-sider-children {
+  background: #146DA6;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #212F45;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,6 +62,15 @@
   color: white;
 }
 
+.container-layout {
+  background: rgba(255, 255, 255, 0);
+  
+}
+
+.footer{
+  background-color: #10498f;
+  color: #FFFFFF;
+}
 .App-link {
   color: #61dafb;
 }
