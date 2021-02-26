@@ -1,1 +1,3 @@
-npm i npm@6.0.1
+#!/bin/bash
+sudo apt install nodejs
+sudo apt install npm
