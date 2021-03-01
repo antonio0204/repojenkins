@@ -6,7 +6,6 @@ pipeline {
                 echo 'executing npm...'
                 nodejs('Node-10.0') {
                     sh 'npm install'
-                    sh 'npm run build'
                 }
             }
         }
