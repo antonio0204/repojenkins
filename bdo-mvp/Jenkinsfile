@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build") {
             steps { 
-                echo 'executing yarn...'
+                echo 'executing npm...'
                 nodejs('Node-10.0') {
                     sh 'npm install'
                 }
@@ -16,7 +16,12 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'npm start'
+                sh 'set -x'
+                sh 'npm run build'
+                sh 'set -x'
+                sh 'npm start & sleep 1'
+                echo $! > .pidfile
+                sh 'set -x'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh 'kill $(cat .pidfile)'
             }     
