@@ -1,12 +1,19 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:14-alpine'
+            args '-p 3000:3000'
+        }
+    }
+    environment {
+        CI = 'true'
+    }
     stages {
-        stage("Build") {
-            steps { 
-                echo 'executing npm...'
-                nodejs('Node-10.0') {
-                    sh 'npm install'
-                }
+        stage('Build') {
+            steps {
+                sh 'cd bdo-mvp'
+                sh 'npm cache clean --force'
+                sh 'npm install'
             }
         }
         stage('Test') {
@@ -17,9 +24,9 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh './bdo-mvp/jenkins/scripts/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)?'
                 sh './bdo-mvp/jenkins/scripts/kill.sh'
-            }     
+            }
         }
     }
 }
