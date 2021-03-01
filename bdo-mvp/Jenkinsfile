@@ -7,9 +7,12 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
+        stage("Build") {
+            steps { 
+                echo 'executing npm...'
+                nodejs('Node-10.0') {
+                    sh 'npm install'
+                }
             }
         }
         stage('Test') {
