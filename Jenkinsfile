@@ -11,7 +11,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd bdo-mvp'
                 sh 'npm cache clean --force'
                 sh 'npm install'
             }
