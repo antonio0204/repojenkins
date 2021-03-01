@@ -1,9 +1,7 @@
 pipeline {
     agent any
     
-    tools{
-        nodejs "npm install node"
-    }
+    tools {nodejs "node"}
     
     environment {
         CI = 'true'
