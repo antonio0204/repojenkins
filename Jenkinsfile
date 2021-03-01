@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:14-alpine'
-            args '-p 3000:3000'
+            args '-p 3000:3000 -u root:root'
         }
     }
     environment {
@@ -11,9 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm cache clean --force'
                 sh 'npm install'
-                sh 'chown -R 111:115 "/.npm"'
             }
         }
         stage('Test') {
