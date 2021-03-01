@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'cd bdo-mvp'
-                sh 'chown -R 111:115 "/.npm"'
+                sh 'npm cache clean --force'
                 sh 'npm install'
             }
         }
