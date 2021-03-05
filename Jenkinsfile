@@ -1,13 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14-alpine'
-            args '--publish -p 3001:3001 -u root:root'
-        }
-    }
-    environment {
-        CI = 'true'
-    }
+    
     stages {
         stage('Build') {
             steps {
